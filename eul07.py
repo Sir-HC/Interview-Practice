@@ -2,7 +2,7 @@
 
 
 import time
-target_prime_index = 10001
+target_prime_index = 500
 cur_prime_index = 1
 cur_prime = 2
 cur = 3
@@ -21,13 +21,15 @@ def is_prime(x):
 # 70.16s before is_prime optimization
 # 34.30s after is_prime optimization (increment by 2's)
 str_time = time.time()
-
+prime_list = []
 while target_prime_index > cur_prime_index:
     if is_prime(cur):
+        prime_list.append(cur)
         cur_prime_index = cur_prime_index + 1
         cur_prime = cur
     cur = cur + 2
 
+print(prime_list)
 end_time = time.time()
 print('Cur prime index: ' + str(cur_prime_index))
 print('cur prime: ' + str(cur_prime))
